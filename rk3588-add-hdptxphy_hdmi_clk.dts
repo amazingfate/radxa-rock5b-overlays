@@ -1,0 +1,23 @@
+/dts-v1/;
+/plugin/;
+/ {
+	fragment@0 {
+		target = <&hdptxphy_hdmi_clk0>;
+		__overlay__ {
+			status = "okay";
+		};
+	};
+	fragment@1 {
+		target = <&hdptxphy_hdmi_clk1>;
+		__overlay__ {
+			status = "okay";
+		};
+	};
+	fragment@2 {
+		target = <&display_subsystem>;
+		__overlay__ {
+			clocks = <&hdptxphy_hdmi_clk0>, <&hdptxphy_hdmi_clk1>;
+			clock-names = "hdmi0_phy_pll", "hdmi1_phy_pll";
+		};
+	};
+};
